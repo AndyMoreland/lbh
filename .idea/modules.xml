@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/Heap/Heap.iml" filepath="$PROJECT_DIR$/src/Heap/Heap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Heap/Heap.iml" filepath="$PROJECT_DIR$/Heap/Heap.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/lbh.iml" filepath="$PROJECT_DIR$/.idea/lbh.iml" />
     </modules>
   </component>
