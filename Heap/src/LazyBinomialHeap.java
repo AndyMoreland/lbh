@@ -106,12 +106,14 @@ public class LazyBinomialHeap {
         }
 
         while (treesToCoalesce.size() > (int) Math.floor(Math.log(numNodes) / Math.log(2))) {
+            BinomialTree tree = treesToCoalesce.remove();
             int treeIndex = (int) Math.floor(Math.log(tree.getSize()) / Math.log(2));
 
             if (treeSizes[treeIndex] == null) {
                 treeSizes[treeIndex] = tree;
             } else {
-
+                treesToCoalesce.add(new BinomialTree(treeSizes[treeIndex], tree));
+                treeSizes[treeIndex] = null;
             }
         }
     }
