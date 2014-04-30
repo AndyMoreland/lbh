@@ -16,8 +16,11 @@ public class BinomialTree {
         key = Math.min(left.getKey(), right.getKey());
 
         if (left.getKey() > right.getKey()) {
-            
+            this.left = right.getLeft();
+            right.addChild(left);
         } else {
+            this.left = left.getLeft();
+            left.addChild(right);
         }
     }
 
@@ -39,6 +42,16 @@ public class BinomialTree {
 
     public void setRight(BinomialTree right) {
         this.right = right;
+    }
+
+    /**
+     * Assumed that child has no siblings.
+     * @param child
+     */
+    public void addChild(BinomialTree child) {
+        assert (child.getRight() == null);
+        child.setRight(getLeft());
+        this.left = child;
     }
 
     /**

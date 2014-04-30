@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * An implementation of a priority queue backed by a lazy binomial heap. Each
  * binomial tree in this heap should be represented using the left-child/right-
@@ -41,8 +44,6 @@ public class LazyBinomialHeap {
      */
     public void enqueue(int key) {
         trees.append(new BinomialTree(key));
-
-
         numNodes++;
     }
 
@@ -98,9 +99,20 @@ public class LazyBinomialHeap {
 
     private void coalesceTrees() {
         BinomialTree[] treeSizes = new BinomialTree[(int) Math.ceil(Math.log(numNodes) / Math.log(2))];
+        Queue<BinomialTree> treesToCoalesce = new LinkedList<BinomialTree>();
 
-        for (BinomialTree tree : treeSizes) {
-            int treeSize = tree.getSize();
+        for (BinomialTree tree : trees) {
+            treesToCoalesce.add(tree);
+        }
+
+        while (treesToCoalesce.size() > (int) Math.floor(Math.log(numNodes) / Math.log(2))) {
+            int treeIndex = (int) Math.floor(Math.log(tree.getSize()) / Math.log(2));
+
+            if (treeSizes[treeIndex] == null) {
+                treeSizes[treeIndex] = tree;
+            } else {
+
+            }
         }
     }
 }
