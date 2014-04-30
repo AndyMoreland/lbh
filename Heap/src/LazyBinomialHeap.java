@@ -13,7 +13,7 @@ import java.util.Queue;
 public class LazyBinomialHeap {
 
     MeldableLinkedList<BinomialTree> trees = new MeldableLinkedList<BinomialTree>();
-    BinomialTree minTree;
+    ListNode<BinomialTree> minTreeNode;
     int numNodes;
 
     public MeldableLinkedList<BinomialTree> getTrees() {
@@ -44,9 +44,9 @@ public class LazyBinomialHeap {
      */
     public void enqueue(int key) {
         BinomialTree newTree = new BinomialTree(key);
-        trees.append(newTree);
-        if (minTree == null || newTree.getKey() < minTree.getKey()) {
-            this.minTree = newTree;
+        ListNode<BinomialTree> newNode = trees.append(newTree);
+        if (minTreeNode == null || newTree.getKey() < minTreeNode.getValue().getKey()) {
+            this.minTreeNode = newNode;
         }
         numNodes++;
     }
@@ -60,7 +60,7 @@ public class LazyBinomialHeap {
     public int min() {
         assert !isEmpty() : "Priority queue is empty!";
 
-        return minTree.getKey();
+        return minTreeNode.getValue().getKey();
     }
 
     /**
@@ -72,12 +72,14 @@ public class LazyBinomialHeap {
     public int extractMin() {
         assert !isEmpty() : "Priority queue is empty!";
 
-        int minValue = minTree.getKey();
+        int minValue = minTreeNode.getValue().getKey();
         numNodes--;
 
-        /* TRACK THE MIN */
-        MeldableLinkedList<BinomialTree> newTrees = minTree.extractRoot();
-        trees.concat(newTrees);
+        MeldableLinkedList<BinomialTree> newTrees = minTreeNode.getValue().extractRoot();
+        trees.remove(minTreeNode);
+        if (newTrees.getSize() > 0) {
+            trees.concat(newTrees);
+        }
 
         coalesceTrees();
 
@@ -103,30 +105,36 @@ public class LazyBinomialHeap {
 
 
     private void coalesceTrees() {
-        BinomialTree[] treeSizes = new BinomialTree[(int) Math.ceil(Math.log(numNodes) / Math.log(2))];
-        Queue<BinomialTree> treesToCoalesce = new LinkedList<BinomialTree>();
+        int targetTreeCount = (int) Math.floor(Math.log(numNodes) / Math.log(2));
+        ListNode<BinomialTree>[] treeSizes = new ListNode[targetTreeCount];
+        Queue<ListNode<BinomialTree>> treesToCoalesce = new LinkedList<ListNode<BinomialTree>>();
 
-        for (BinomialTree tree : trees) {
-            treesToCoalesce.add(tree);
+        for (ListNode<BinomialTree> treeNode : trees) {
+            treesToCoalesce.add(treeNode);
         }
 
-        while (treesToCoalesce.size() > (int) Math.floor(Math.log(numNodes) / Math.log(2))) {
-            BinomialTree tree = treesToCoalesce.remove();
+        while (treesToCoalesce.size() > targetTreeCount) {
+            ListNode<BinomialTree> treeNode = treesToCoalesce.remove();
+            BinomialTree tree = treeNode.getValue();
+
             int treeIndex = (int) Math.floor(Math.log(tree.getSize()) / Math.log(2));
 
             if (treeSizes[treeIndex] == null) {
-                treeSizes[treeIndex] = tree;
+                treeSizes[treeIndex] = treeNode;
             } else {
-                treesToCoalesce.add(BinomialTree.coalesce(treeSizes[treeIndex], tree));
+                BinomialTree newTree = BinomialTree.coalesce(treeSizes[treeIndex].getValue(), tree);
+                treesToCoalesce.add(trees.append(newTree));
+                trees.remove(treeNode);
+                trees.remove(treeSizes[treeIndex]);
                 treeSizes[treeIndex] = null;
             }
         }
 
-        minTree = trees.getHead().getValue();
+        minTreeNode = trees.getHead();
 
-        for (BinomialTree tree : trees) {
-            if (tree.getKey() < minTree.getKey()) {
-                minTree = tree;
+        for (ListNode<BinomialTree> treeNode: trees) {
+            if (treeNode.getValue().getKey() < minTreeNode.getValue().getKey()) {
+                minTreeNode = treeNode;
             }
         }
     }
