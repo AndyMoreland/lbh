@@ -24,7 +24,6 @@ public class LazyBinomialHeap {
      * Constructs a new, empty LazyBinomialHeap.
      */
     public LazyBinomialHeap() {
-        // TODO: Fill this in!
     }
 
     /**
@@ -105,8 +104,8 @@ public class LazyBinomialHeap {
 
 
     private void coalesceTrees() {
-        int targetTreeCount = (int) Math.floor(Math.log(numNodes) / Math.log(2));
-        ListNode<BinomialTree>[] treeSizes = new ListNode[targetTreeCount];
+        int targetTreeCount = (int) Math.ceil(Math.log(numNodes) / Math.log(2));
+        ListNode<BinomialTree> treeSizes[] = new ListNode[targetTreeCount];
         Queue<ListNode<BinomialTree>> treesToCoalesce = new LinkedList<ListNode<BinomialTree>>();
 
         for (ListNode<BinomialTree> treeNode : trees) {

@@ -17,12 +17,17 @@ public class BinomialTreeTest {
     @Test
     public void ExtractMinTest() {
         LazyBinomialHeap heap = new LazyBinomialHeap();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 20; i++) {
             heap.enqueue(i);
         }
 
-        assertEquals(0, heap.extractMin());
-        assertEquals(1, heap.extractMin());
-        assertEquals(2, heap.extractMin());
+        for (int i = 0; i < 20; i++) {
+            assertEquals(i, heap.extractMin());
+        }
+
+
+        for (ListNode<BinomialTree> treeListNode : heap.getTrees()) {
+            System.out.println(treeListNode.getValue().getSize());
+        }
     }
 }
