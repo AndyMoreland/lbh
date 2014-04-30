@@ -82,7 +82,7 @@ public class MeldableLinkedList<T> implements Iterable<ListNode<T>> {
         if (node.getPrev() != null) {
             node.getPrev().setNext(node.getNext());
         }
-
+        size--;
     }
 
 
@@ -107,21 +107,7 @@ public class MeldableLinkedList<T> implements Iterable<ListNode<T>> {
 
         @Override
         public void remove() {
-            if (head == current) {
-                head = current.getNext();
-            }
-
-            if (tail == current) {
-                tail = current.getPrev();
-            }
-
-            if (current.getNext() != null) {
-                current.getNext().setPrev(current.getPrev());
-            }
-
-            if (current.getPrev() != null) {
-                current.getPrev().setNext(current.getNext());
-            }
+            return;
         }
     }
 }
