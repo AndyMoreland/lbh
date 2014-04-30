@@ -13,7 +13,7 @@ import java.util.Queue;
 public class LazyBinomialHeap {
 
     private MeldableLinkedList<BinomialTree> trees = new MeldableLinkedList<BinomialTree>();
-    public ListNode<BinomialTree> minTreeNode;
+    private ListNode<BinomialTree> minTreeNode;
     private int numNodes;
 
     public MeldableLinkedList<BinomialTree> getTrees() {
