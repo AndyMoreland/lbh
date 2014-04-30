@@ -80,7 +80,11 @@ public class LazyBinomialHeap {
             trees.concat(newTrees);
         }
 
-        coalesceTrees();
+        if (numNodes > 1) {
+            coalesceTrees();
+        }
+
+        updateMin();
 
         return minValue;
     }
@@ -128,7 +132,9 @@ public class LazyBinomialHeap {
                 treeSizes[treeIndex] = null;
             }
         }
+    }
 
+    private void updateMin() {
         minTreeNode = trees.getHead();
 
         for (ListNode<BinomialTree> treeNode: trees) {
