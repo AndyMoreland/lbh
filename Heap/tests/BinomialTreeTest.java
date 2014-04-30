@@ -41,6 +41,8 @@ public class BinomialTreeTest {
         assertEquals(3, heap.extractMin());
     }
 
+
+
     @Test
     public void testRandomStuff() throws Exception {
         for (int times = 0; times < 100; times++) {
@@ -64,6 +66,11 @@ public class BinomialTreeTest {
                 LazyBinomialHeap h2 = heaps.remove(j);
                 LazyBinomialHeap h3 = LazyBinomialHeap.meld(h1, h2);
                 heaps.add(h3);
+                for (int k = 0; k < Math.random() * 1000; k++) {
+                    int v = (int) (Math.random() * 1000000);
+                    h3.enqueue(v);
+                    if (v < min || min == -1) min = v;
+                }
             }
 
             assertEquals(1, heaps.size());
