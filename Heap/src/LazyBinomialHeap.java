@@ -33,7 +33,7 @@ public class LazyBinomialHeap {
      * @return Whether this lazy binomial heap is empty.
      */
     public boolean isEmpty() {
-        return trees.getSize() > 0;
+        return trees.getSize() == 0;
     }
 
     /**
@@ -43,7 +43,11 @@ public class LazyBinomialHeap {
      * @param key The key to add.
      */
     public void enqueue(int key) {
-        trees.append(new BinomialTree(key));
+        BinomialTree newTree = new BinomialTree(key);
+        trees.append(newTree);
+        if (newTree.getKey() < min()) {
+            this.minTree = newTree;
+        }
         numNodes++;
     }
 
@@ -71,6 +75,7 @@ public class LazyBinomialHeap {
         int minValue = minTree.getKey();
         numNodes--;
 
+        /* TRACK THE MIN */
         MeldableLinkedList<BinomialTree> newTrees = minTree.extractRoot();
         trees.concat(newTrees);
 
@@ -112,7 +117,7 @@ public class LazyBinomialHeap {
             if (treeSizes[treeIndex] == null) {
                 treeSizes[treeIndex] = tree;
             } else {
-                treesToCoalesce.add(new BinomialTree(treeSizes[treeIndex], tree));
+                treesToCoalesce.add(BinomialTree.coalesce(treeSizes[treeIndex], tree));
                 treeSizes[treeIndex] = null;
             }
         }

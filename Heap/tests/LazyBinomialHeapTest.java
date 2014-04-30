@@ -2,10 +2,6 @@ import junit.framework.TestCase;
 
 public class LazyBinomialHeapTest extends TestCase {
 
-    public void testGetTrees() throws Exception {
-
-    }
-
     public void testIsEmpty() throws Exception {
 
     }
