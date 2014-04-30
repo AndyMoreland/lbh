@@ -79,6 +79,7 @@ public class BinomialTreeTest {
         }
 
         for (int i = 0; i < 20; i++) {
+            System.out.println(i);
             assertEquals(i, heap.extractMin());
         }
 

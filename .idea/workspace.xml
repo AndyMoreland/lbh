@@ -11,8 +11,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Heap/tests/LazyBinomialHeapTest.java" afterPath="$PROJECT_DIR$/Heap/tests/LazyBinomialHeapTest.java" />
 =======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Heap/src/LazyBinomialHeap.java" afterPath="$PROJECT_DIR$/Heap/src/LazyBinomialHeap.java" />
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Heap/src/MeldableLinkedList.java" afterPath="$PROJECT_DIR$/Heap/src/MeldableLinkedList.java" />
 >>>>>>> ae6b23b4c9519c7df4cc98bbac3c3fd550bcd9ca
+=======
+>>>>>>> eec49d398829a17d037b0bbde5a9234776bb196c
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lbh.iws" />
@@ -135,9 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LazyBinomialHeap.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LazyBinomialHeap.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Heap/src/LazyBinomialHeap.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="1480" max-vertical-offset="2025">
               <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
@@ -148,6 +152,10 @@
 =======
             <state vertical-scroll-proportion="0.0" vertical-offset="1570" max-vertical-offset="2190">
               <caret line="128" column="13" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="13" />
+=======
+            <state vertical-scroll-proportion="0.54908484" vertical-offset="1395" max-vertical-offset="2280">
+              <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
+>>>>>>> eec49d398829a17d037b0bbde5a9234776bb196c
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#570#584#0" expanded="true" />
@@ -155,8 +163,12 @@
                 <element signature="e#730#731#0" expanded="true" />
                 <element signature="e#1002#1003#0" expanded="true" />
                 <element signature="e#1045#1046#0" expanded="true" />
+<<<<<<< HEAD
                 <element signature="e#3439#3463#0" expanded="true" />
 >>>>>>> ae6b23b4c9519c7df4cc98bbac3c3fd550bcd9ca
+=======
+                <element signature="e#3503#3527#0" expanded="true" />
+>>>>>>> eec49d398829a17d037b0bbde5a9234776bb196c
               </folding>
             </state>
           </provider>
@@ -189,10 +201,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BASE64Decoder.class" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BASE64Decoder.class" pinned="false" current="false" current-in-tab="false">
         <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/sun/misc/BASE64Decoder.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39933443" vertical-offset="0" max-vertical-offset="601">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
               <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
               <folding />
             </state>
@@ -224,12 +236,17 @@
         <entry file="file://$PROJECT_DIR$/Heap/tests/BinomialTreeTest.java">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.5631068" vertical-offset="535" max-vertical-offset="1140">
               <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
 =======
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
               <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
 >>>>>>> ae6b23b4c9519c7df4cc98bbac3c3fd550bcd9ca
+=======
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+>>>>>>> eec49d398829a17d037b0bbde5a9234776bb196c
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1214#1232#0" expanded="true" />
@@ -291,12 +308,16 @@
         <option value="$PROJECT_DIR$/Heap/src/BinomialTree.java" />
         <option value="$PROJECT_DIR$/Heap/src/ListNode.java" />
         <option value="$PROJECT_DIR$/Heap/src/MeldableLinkedList.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Heap/src/LazyBinomialHeap.java" />
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/Heap/tests/LazyBinomialHeapTest.java" />
 =======
 >>>>>>> ae6b23b4c9519c7df4cc98bbac3c3fd550bcd9ca
+=======
+>>>>>>> eec49d398829a17d037b0bbde5a9234776bb196c
         <option value="$PROJECT_DIR$/Heap/tests/BinomialTreeTest.java" />
+        <option value="$PROJECT_DIR$/Heap/src/LazyBinomialHeap.java" />
       </list>
     </option>
   </component>
@@ -734,8 +755,12 @@
     <editor active="true" />
 =======
     <frame x="4" y="22" width="1676" height="1028" extended-state="6" />
+<<<<<<< HEAD
     <editor active="false" />
 >>>>>>> ae6b23b4c9519c7df4cc98bbac3c3fd550bcd9ca
+=======
+    <editor active="true" />
+>>>>>>> eec49d398829a17d037b0bbde5a9234776bb196c
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -795,6 +820,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
+<<<<<<< HEAD
       <default-breakpoints>
         <breakpoint enabled="true" type="java-exception">
           <properties />
@@ -802,6 +828,9 @@
       </default-breakpoints>
       <option name="time" value="9" />
 >>>>>>> ae6b23b4c9519c7df4cc98bbac3c3fd550bcd9ca
+=======
+      <option name="time" value="10" />
+>>>>>>> eec49d398829a17d037b0bbde5a9234776bb196c
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1015,6 +1044,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Heap/src/LazyBinomialHeap.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1056,6 +1086,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> eec49d398829a17d037b0bbde5a9234776bb196c
     <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/util/zip/ZipFile.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="760" max-vertical-offset="1560">
@@ -1093,10 +1125,36 @@
     </entry>
     <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/sun/misc/BASE64Decoder.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39933443" vertical-offset="0" max-vertical-offset="601">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
           <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
           <folding />
 >>>>>>> ae6b23b4c9519c7df4cc98bbac3c3fd550bcd9ca
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Heap/tests/BinomialTreeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Heap/src/LazyBinomialHeap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54908484" vertical-offset="1395" max-vertical-offset="2280">
+          <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#570#584#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#730#731#0" expanded="true" />
+            <element signature="e#1002#1003#0" expanded="true" />
+            <element signature="e#1045#1046#0" expanded="true" />
+            <element signature="e#3503#3527#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
