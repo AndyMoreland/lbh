@@ -99,8 +99,7 @@ public class LazyBinomialHeap {
      * @param two The second queue to meld.
      * @return A queue consisting of all the keys in both input queues.
      */
-    public static LazyBinomialHeap meld(LazyBinomialHeap one,
-                                        LazyBinomialHeap two) {
+    public static LazyBinomialHeap meld(LazyBinomialHeap one, LazyBinomialHeap two) {
         one.getTrees().concat(two.getTrees());
 
         return one;
@@ -110,11 +109,7 @@ public class LazyBinomialHeap {
     private void coalesceTrees() {
         int targetTreeCount = (int) Math.ceil(Math.log(numNodes) / Math.log(2));
         ListNode<BinomialTree> treeSizes[] = new ListNode[targetTreeCount];
-        Queue<ListNode<BinomialTree>> treesToCoalesce = new LinkedList<ListNode<BinomialTree>>();
-
-        for (ListNode<BinomialTree> treeNode : trees) {
-            treesToCoalesce.add(treeNode);
-        }
+        Queue<ListNode<BinomialTree>> treesToCoalesce = buildQueue();
 
         while (treesToCoalesce.size() > targetTreeCount) {
             ListNode<BinomialTree> treeNode = treesToCoalesce.remove();
@@ -125,13 +120,27 @@ public class LazyBinomialHeap {
             if (treeSizes[treeIndex] == null) {
                 treeSizes[treeIndex] = treeNode;
             } else {
-                BinomialTree newTree = BinomialTree.coalesce(treeSizes[treeIndex].getValue(), tree);
-                treesToCoalesce.add(trees.append(newTree));
-                trees.remove(treeNode);
-                trees.remove(treeSizes[treeIndex]);
+                treesToCoalesce.add(coalescePair(treeSizes[treeIndex], treeNode));
                 treeSizes[treeIndex] = null;
             }
         }
+    }
+
+    private ListNode<BinomialTree> coalescePair(ListNode<BinomialTree> left, ListNode<BinomialTree> right) {
+        BinomialTree newTree = BinomialTree.coalesce(left.getValue(), right.getValue());
+        trees.remove(left);
+        trees.remove(right);
+
+        return trees.append(newTree);
+    }
+
+    private Queue<ListNode<BinomialTree>> buildQueue() {
+        Queue<ListNode<BinomialTree>> treesToCoalesce = new LinkedList<ListNode<BinomialTree>>();
+
+        for (ListNode<BinomialTree> treeNode : trees) {
+            treesToCoalesce.add(treeNode);
+        }
+        return treesToCoalesce;
     }
 
     private void updateMin() {
