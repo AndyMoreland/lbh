@@ -12,9 +12,9 @@ import java.util.Queue;
  */
 public class LazyBinomialHeap {
 
-    MeldableLinkedList<BinomialTree> trees = new MeldableLinkedList<BinomialTree>();
-    ListNode<BinomialTree> minTreeNode;
-    int numNodes;
+    private MeldableLinkedList<BinomialTree> trees = new MeldableLinkedList<BinomialTree>();
+    public ListNode<BinomialTree> minTreeNode;
+    private int numNodes;
 
     public MeldableLinkedList<BinomialTree> getTrees() {
         return trees;
@@ -76,7 +76,10 @@ public class LazyBinomialHeap {
 
         MeldableLinkedList<BinomialTree> newTrees = minTreeNode.getValue().extractRoot();
         trees.remove(minTreeNode);
-        if (newTrees.getSize() > 0) {
+
+        if (trees.getSize() == 0) {
+            trees = newTrees;
+        } else if (newTrees.getSize() > 0) {
             trees.concat(newTrees);
         }
 
@@ -101,6 +104,10 @@ public class LazyBinomialHeap {
      */
     public static LazyBinomialHeap meld(LazyBinomialHeap one, LazyBinomialHeap two) {
         one.getTrees().concat(two.getTrees());
+        if (one.minTreeNode.getValue().getKey() > two.minTreeNode.getValue().getKey()) {
+            one.minTreeNode = two.minTreeNode;
+        }
+        one.numNodes += two.numNodes;
 
         return one;
     }
@@ -111,7 +118,7 @@ public class LazyBinomialHeap {
         ListNode<BinomialTree> treeSizes[] = new ListNode[targetTreeCount];
         Queue<ListNode<BinomialTree>> treesToCoalesce = buildQueue();
 
-        while (treesToCoalesce.size() > targetTreeCount) {
+        while (trees.getSize() > targetTreeCount) {
             ListNode<BinomialTree> treeNode = treesToCoalesce.remove();
             BinomialTree tree = treeNode.getValue();
 

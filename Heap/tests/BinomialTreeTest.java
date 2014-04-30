@@ -74,18 +74,13 @@ public class BinomialTreeTest {
     @Test
     public void ExtractMinTest() {
         LazyBinomialHeap heap = new LazyBinomialHeap();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 1000; i++) {
             heap.enqueue(i);
         }
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 1000; i++) {
             System.out.println(i);
             assertEquals(i, heap.extractMin());
-        }
-
-
-        for (ListNode<BinomialTree> treeListNode : heap.getTrees()) {
-            System.out.println(treeListNode.getValue().getSize());
         }
     }
 }

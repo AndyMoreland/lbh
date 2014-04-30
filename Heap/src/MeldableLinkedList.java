@@ -17,6 +17,7 @@ public class MeldableLinkedList<T> implements Iterable<ListNode<T>> {
      * @param list
      */
     public void concat(MeldableLinkedList<T> list) {
+        assert(list.getHead() != null);
         tail.setNext(list.getHead());
         list.getHead().setPrev(tail);
         tail = list.getTail();
