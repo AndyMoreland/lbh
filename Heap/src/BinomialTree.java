@@ -10,20 +10,6 @@ public class BinomialTree {
         this.key = key;
     }
 
-    /* Combine two trees. */
-    public BinomialTree(BinomialTree left, BinomialTree right) {
-        numNodes = left.getSize() + right.getSize();
-        key = Math.min(left.getKey(), right.getKey());
-
-        if (left.getKey() > right.getKey()) {
-            this.left = right.getLeft();
-            right.addChild(left);
-        } else {
-            this.left = left.getLeft();
-            left.addChild(right);
-        }
-    }
-
     public int getKey() {
         return key;
     }
@@ -52,6 +38,7 @@ public class BinomialTree {
         assert (child.getRight() == null);
         child.setRight(getLeft());
         this.left = child;
+        this.numNodes += child.getSize();
     }
 
     /**
@@ -75,5 +62,15 @@ public class BinomialTree {
 
     public int getSize() {
         return numNodes;
+    }
+
+    public static BinomialTree coalesce(BinomialTree left, BinomialTree right) {
+        if (left.getKey() > right.getKey()) {
+            right.addChild(left);
+            return right;
+        } else {
+            left.addChild(right);
+            return left;
+        }
     }
 }
