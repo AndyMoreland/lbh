@@ -45,7 +45,7 @@ public class LazyBinomialHeap {
     public void enqueue(int key) {
         BinomialTree newTree = new BinomialTree(key);
         trees.append(newTree);
-        if (newTree.getKey() < min()) {
+        if (minTree == null || newTree.getKey() < minTree.getKey()) {
             this.minTree = newTree;
         }
         numNodes++;
@@ -119,6 +119,14 @@ public class LazyBinomialHeap {
             } else {
                 treesToCoalesce.add(BinomialTree.coalesce(treeSizes[treeIndex], tree));
                 treeSizes[treeIndex] = null;
+            }
+        }
+
+        minTree = trees.getHead().getValue();
+
+        for (BinomialTree tree : trees) {
+            if (tree.getKey() < minTree.getKey()) {
+                minTree = tree;
             }
         }
     }
