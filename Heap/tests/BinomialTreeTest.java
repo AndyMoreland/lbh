@@ -13,4 +13,16 @@ public class BinomialTreeTest {
         heap.enqueue(3);
         assertEquals(heap.min(), 3);
     }
+
+    @Test
+    public void ExtractMinTest() {
+        LazyBinomialHeap heap = new LazyBinomialHeap();
+        for (int i = 0; i < 100; i++) {
+            heap.enqueue(i);
+        }
+
+        assertEquals(0, heap.extractMin());
+        assertEquals(1, heap.extractMin());
+        assertEquals(2, heap.extractMin());
+    }
 }

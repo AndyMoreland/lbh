@@ -5,7 +5,7 @@ import java.util.Iterator;
  * to implement this class, but we strongly recommend doing so as a stepping
  * stone toward building the LazyBinomialHeap.
  */
-public class MeldableLinkedList<T> implements Iterable<T> {
+public class MeldableLinkedList<T> implements Iterable<ListNode<T>> {
     private ListNode<T> head;
     private ListNode<T> tail;
     private int size;
@@ -25,7 +25,7 @@ public class MeldableLinkedList<T> implements Iterable<T> {
     }
 
 
-    public void append(T value) {
+    public ListNode<T> append(T value) {
         ListNode<T> node = new ListNode<T>(value);
 
         if (this.head == null) {
@@ -41,11 +41,13 @@ public class MeldableLinkedList<T> implements Iterable<T> {
         }
 
         this.size++;
+
+        return node;
     }
 
     @Override
-    public Iterator<T> iterator() {
-        return new LinkedListIterator<T>(head);
+    public Iterator<ListNode<T>> iterator() {
+        return new LinkedListIterator(head);
     }
 
     public void setHead(ListNode<T> head) {
@@ -64,7 +66,27 @@ public class MeldableLinkedList<T> implements Iterable<T> {
         return size;
     }
 
-    private class LinkedListIterator<T> implements Iterator<T>{
+    public void remove(ListNode<T> node) {
+        if (head == node) {
+            head = node.getNext();
+        }
+
+        if (tail == node) {
+            tail = node.getPrev();
+        }
+
+        if (node.getNext() != null) {
+            node.getNext().setPrev(node.getPrev());
+        }
+
+        if (node.getPrev() != null) {
+            node.getPrev().setNext(node.getNext());
+        }
+
+    }
+
+
+    private class LinkedListIterator implements Iterator<ListNode<T>> {
         private ListNode<T> current;
 
         private LinkedListIterator(ListNode<T> head) {
@@ -77,15 +99,29 @@ public class MeldableLinkedList<T> implements Iterable<T> {
         }
 
         @Override
-        public T next() {
-            T value = current.getValue();
+        public ListNode<T> next() {
+            ListNode<T> cursor = current;
             current = current.getNext();
-            return value;
+            return cursor;
         }
 
         @Override
         public void remove() {
-            return;
+            if (head == current) {
+                head = current.getNext();
+            }
+
+            if (tail == current) {
+                tail = current.getPrev();
+            }
+
+            if (current.getNext() != null) {
+                current.getNext().setPrev(current.getPrev());
+            }
+
+            if (current.getPrev() != null) {
+                current.getPrev().setNext(current.getNext());
+            }
         }
     }
 }

@@ -30,4 +30,5 @@ public class ListNode<T> {
     public ListNode(T value) {
         this.value = value;
     }
+
 }
